@@ -14,7 +14,7 @@ const Hero = () => {
                 className="video-bg"
                 poster="https://images.unsplash.com/photo-1494412651409-ae44160a1d66?q=80&w=2070&auto=format&fit=crop"
             >
-                <source src="/src/assets/mixkit-flying-over-a-cargo-ship-leaving-a-port-35869-hd-ready (1).mp4" type="video/mp4" />
+                <source src="D:\website N\client\src\assets\cargo-ship.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
