@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import GlobalVideoBackground from './components/GlobalVideoBackground';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import InfoSection from './components/InfoSection';
-import Products from './components/Products';
-import Gallery from './components/Gallery';
-import Blogs from './components/Blogs';
-import Careers from './components/Careers';
-import About from './components/About';
-import Testimonial from './components/Testimonial';
-import LocationMap from './components/LocationMap';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';
 import './index.css';
+
+// Lazy load components for performance
+const Hero = lazy(() => import('./components/Hero'));
+const InfoSection = lazy(() => import('./components/InfoSection'));
+const Products = lazy(() => import('./components/Products'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const Blogs = lazy(() => import('./components/Blogs'));
+const Careers = lazy(() => import('./components/Careers'));
+const About = lazy(() => import('./components/About'));
+const Testimonial = lazy(() => import('./components/Testimonial'));
+const LocationMap = lazy(() => import('./components/LocationMap'));
+const ContactForm = lazy(() => import('./components/ContactForm'));
+const Footer = lazy(() => import('./components/Footer'));
+const WhatsAppFloat = lazy(() => import('./components/WhatsAppFloat'));
+
+// Modern, minimalist loading state
+const LoadingScreen = () => (
+  <div style={{
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'var(--primary-color)'
+  }}>
+    <div className="loader"></div>
+  </div>
+);
 
 function App() {
   return (
@@ -22,21 +37,24 @@ function App() {
       <div className="App">
         <GlobalVideoBackground />
         <Navbar />
-        <Hero />
-        <InfoSection />
-        <Products />
-        <Gallery />
-        <Blogs />
-        <Careers />
-        <About />
-        <Testimonial />
-        <LocationMap />
-        <ContactForm />
-        <Footer />
-        <WhatsAppFloat />
+        <Suspense fallback={<LoadingScreen />}>
+          <Hero />
+          <InfoSection />
+          <Products />
+          <Gallery />
+          <Blogs />
+          <Careers />
+          <About />
+          <Testimonial />
+          <LocationMap />
+          <ContactForm />
+          <Footer />
+          <WhatsAppFloat />
+        </Suspense>
       </div>
     </Router>
   );
 }
 
 export default App;
+

@@ -65,7 +65,7 @@ const Products = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-                            <img src={product.image} alt={product.name} className="product-img" />
+                            <img src={product.image} alt={product.name} className="product-img" loading="lazy" />
                             <div className="product-info">
                                 <h3>{product.name}</h3>
                                 <p>{product.description}</p>

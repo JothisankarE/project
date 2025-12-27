@@ -74,6 +74,7 @@ const InfoSection = () => {
                         <img
                             src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
                             alt="Global Innovation"
+                            loading="lazy"
                         />
                     </motion.div>
                 </div>

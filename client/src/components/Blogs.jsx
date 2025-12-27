@@ -58,7 +58,7 @@ const Blogs = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <div className="blog-image">
-                                <img src={post.image} alt={post.title} />
+                                <img src={post.image} alt={post.title} loading="lazy" />
                                 <span className="blog-category">{post.category}</span>
                             </div>
                             <div className="blog-content">

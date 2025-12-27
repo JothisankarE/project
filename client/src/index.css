@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--primary-color);
@@ -28,6 +32,28 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   position: relative;
+}
+
+/* Loader Animation */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--secondary-color);
+  border-bottom-color: var(--accent-blue);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Global Video Background */

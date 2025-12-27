@@ -65,7 +65,7 @@ const Gallery = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-                            <img src={item.image} alt={item.title} />
+                            <img src={item.image} alt={item.title} loading="lazy" />
                             <div className="gallery-overlay">
                                 <h4>{item.title}</h4>
                                 <p>{item.description}</p>
