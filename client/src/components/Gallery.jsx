@@ -55,26 +55,22 @@ const Gallery = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    Our Journey
+                    Our Gallery
                 </motion.h2>
 
-                <div className="gallery-grid">
-                    {galleryItems.map((item, index) => (
-                        <motion.div
-                            key={item.id}
-                            className="gallery-item"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <img src={item.image} alt={item.title} loading="lazy" />
-                            <div className="gallery-overlay">
-                                <h4>{item.title}</h4>
-                                <p>{item.description}</p>
+                <div className="gallery-marquee-container">
+                    <div className="gallery-track">
+                        {/* Render items twice for seamless scrolling */}
+                        {[...galleryItems, ...galleryItems].map((item, index) => (
+                            <div key={`${item.id}-${index}`} className="gallery-card">
+                                <img src={item.image} alt={item.title} loading="lazy" />
+                                <div className="gallery-overlay-text">
+                                    <h4>{item.title}</h4>
+                                    <p>{item.description}</p>
+                                </div>
                             </div>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
