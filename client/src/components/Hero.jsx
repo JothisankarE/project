@@ -41,7 +41,7 @@ const Hero = () => {
                         opacity: { duration: 0.8, delay: 0.4 },
                         scale: { duration: 0.8, delay: 0.4 },
                         y: {
-                            duration: 4,
+                            duration: 3,
                             repeat: Infinity,
                             ease: "easeInOut",
                             repeatType: "loop"
@@ -69,7 +69,7 @@ const Hero = () => {
                                 color: ["#ffffff", "#4FC3F7", "#ffffff"], // White -> Light Ocean Blue -> White
                             }}
                             transition={{
-                                duration: 2,
+                                duration: 3,
                                 repeat: Infinity,
                                 ease: "easeInOut",
                                 delay: index * 0.1,
