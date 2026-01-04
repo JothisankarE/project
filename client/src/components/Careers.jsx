@@ -4,35 +4,7 @@ import '../index.css';
 import '../sections.css';
 
 const Careers = () => {
-    const jobOpenings = [
-        {
-            id: 1,
-            title: 'Logistics Coordinator',
-            location: 'Coimbatore, Tamil Nadu',
-            type: 'Full-time',
-            experience: '2-4 years',
-            description: 'Manage international shipments, coordinate with carriers, and ensure timely delivery.',
-            skills: ['Supply Chain Management', 'Communication', 'Problem Solving']
-        },
-        {
-            id: 2,
-            title: 'Business Development Executive',
-            location: 'Coimbatore, Tamil Nadu',
-            type: 'Full-time',
-            experience: '1-3 years',
-            description: 'Identify new business opportunities, build client relationships, and drive revenue growth.',
-            skills: ['Sales', 'Negotiation', 'Market Research']
-        },
-        {
-            id: 3,
-            title: 'Operations Manager',
-            location: 'Coimbatore, Tamil Nadu',
-            type: 'Full-time',
-            experience: '5+ years',
-            description: 'Oversee daily operations, optimize processes, and lead the operations team.',
-            skills: ['Leadership', 'Process Optimization', 'Team Management']
-        }
-    ];
+    const jobOpenings = [];
 
     return (
         <section className="section-padding careers-section" id="careers">
@@ -63,7 +35,6 @@ const Careers = () => {
                         >
                             <div className="job-header">
                                 <h3>{job.title}</h3>
-                                <span className="job-type">{job.type}</span>
                             </div>
                             <div className="job-details">
                                 <span className="job-location">📍 {job.location}</span>

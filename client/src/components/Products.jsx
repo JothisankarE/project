@@ -45,6 +45,9 @@ const Products = () => {
     return (
         <section className="section-padding products-section" id="products">
             <div className="container">
+                <center>
+                    <span className="section-tag">Global Marketplace</span>
+                </center>
                 <motion.h2
                     className="section-title heading-serif"
                     initial={{ opacity: 0, y: 30 }}

@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../index.css';
 import cargoShipVideo from '../assets/cargo-ship.mp4';
+import logoImage from '../assets/logo.png';
+import { FaMapMarkerAlt, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
 
 const Hero = () => {
     return (
@@ -13,7 +15,7 @@ const Hero = () => {
                 muted
                 playsInline
                 className="video-bg"
-                poster="https://images.unsplash.com/photo-1494412651409-ae44160a1d66?q=80&w=2070&auto=format&fit=crop"
+                poster="https://plus.unsplash.com/premium_photo-1675804669851-e2833075b9f7?q=80&w=2070&auto=format&fit=crop"
             >
                 <source src={cargoShipVideo} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -25,32 +27,67 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
             >
-                <motion.h1
-                    initial={{ opacity: 0, scale: 0.9 }}
+                {/* Logo Box (Circle Redesign) */}
+                <motion.div
+                    className="logo-box-circle"
+                    initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                    <img src={logoImage} alt="Logo" className="hero-logo-img" />
+                </motion.div>
+
+                <motion.h1
+                    className="hero-main-title"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     SARAVANA OVERSEAS
                 </motion.h1>
+
                 <motion.p
+                    className="hero-tagline-italic"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    Revolutionizing Global Trade Through Innovation
+                    <i>Revolutionizing Global Trade Through Innovation</i>
                 </motion.p>
-                <motion.a
-                    href="#contact"
-                    className="btn-primary"
+
+                {/* Location Badge */}
+                <motion.div
+                    className="location-badge"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                >
+                    <FaMapMarkerAlt />
+                    <span>Tamil Nadu | Global Reach</span>
+                </motion.div>
+
+                {/* Single Explore Button */}
+                <motion.div
+                    className="hero-btn-container"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1.2 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                 >
-                    Join Our Journey
-                </motion.a>
+                    <motion.a
+                        href="#products"
+                        className="btn-explore-glow"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <span>Explore Us</span>
+                        <div className="btn-icon-circle">
+                            <FaPaperPlane />
+                        </div>
+                    </motion.a>
+                </motion.div>
             </motion.div>
+
+
         </section>
     );
 };

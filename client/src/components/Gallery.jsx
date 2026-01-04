@@ -45,6 +45,9 @@ const Gallery = () => {
     return (
         <section className="section-padding gallery-section" id="media">
             <div className="container">
+                <center>
+                    <span className="section-tag">Visual Timeline</span>
+                </center>
                 <motion.h2
                     className="section-title heading-serif"
                     initial={{ opacity: 0, y: 30 }}

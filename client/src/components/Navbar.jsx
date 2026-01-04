@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import logoImage from '../assets/logo.png';
 import '../index.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
+
+            // Calculate scroll progress for structure
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            setScrollProgress(progress);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -25,15 +32,25 @@ const Navbar = () => {
 
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            <div className="container nav-container">
-                <div className="logo">
-                    <Link to="/" className="logo-link">
-                        <img src={logoImage} alt="Saravana Overseas Logo" className="logo-img" />
-                        <h2>SARAVANA <span>OVERSEAS</span></h2>
-                    </Link>
-                </div>
+            {/* Scroll Progress Bar */}
+            <div className="scroll-progress-container">
+                <div 
+                    className="scroll-progress-bar" 
+                    style={{ width: `${scrollProgress}%` }}
+                ></div>
+            </div>
 
-                {/* Hamburger Menu Button */}
+            <div className="container nav-container">
+                {/* Unified Navigation Links */}
+                <ul className="nav-links desktop-nav">
+                    <li><a href="#home" className="active">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#blogs">Blogs</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact" className="nav-contact-btn">Contact</a></li>
+                </ul>
+
+                {/* Hamburger Menu Button (Mobile) */}
                 <button
                     className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
                     onClick={toggleMobileMenu}
@@ -44,27 +61,26 @@ const Navbar = () => {
                     <span></span>
                 </button>
 
-                {/* Desktop Navigation */}
-                <ul className="nav-links desktop-nav">
-                    <li><a href="#home" className="active">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#blogs">Blogs</a></li>
-                    <li><a href="#careers">Careers</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-
                 {/* Mobile Navigation */}
-                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-                    <ul className="mobile-nav-links">
-                        <li><a href="#home" onClick={closeMobileMenu}>Home</a></li>
-                        <li><a href="#products" onClick={closeMobileMenu}>Products</a></li>
-                        <li><a href="#blogs" onClick={closeMobileMenu}>Blogs</a></li>
-                        <li><a href="#careers" onClick={closeMobileMenu}>Careers</a></li>
-                        <li><a href="#about" onClick={closeMobileMenu}>About Us</a></li>
-                        <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
-                    </ul>
-                </div>
+                <AnimatePresence>
+                    {mobileMenuOpen && (
+                        <motion.div
+                            className="mobile-menu open"
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: "tween", duration: 0.3 }}
+                        >
+                            <ul className="mobile-nav-links">
+                                <li><a href="#home" onClick={closeMobileMenu}>Home</a></li>
+                                <li><a href="#products" onClick={closeMobileMenu}>Products</a></li>
+                                <li><a href="#blogs" onClick={closeMobileMenu}>Blogs</a></li>
+                                <li><a href="#about" onClick={closeMobileMenu}>About Us</a></li>
+                                <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
+                            </ul>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* Overlay */}

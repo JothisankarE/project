@@ -9,7 +9,7 @@ const GlobalVideoBackground = () => {
             playsInline
             className="global-video-bg"
         >
-            <source src="https://videos.pexels.com/video-files/4439425/4439425-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-cargo-ship-floating-in-the-ocean-34531-large.mp4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
     );

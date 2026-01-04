@@ -14,6 +14,7 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
+                    <span className="section-tag">Our Philosophy</span>
                     <h2 className="heading-serif">Our Startup Story</h2>
                     <p>
                         <strong>SARAVANA OVERSEAS</strong> was founded with a bold vision: to make international trade
