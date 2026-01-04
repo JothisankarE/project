@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from '../assets/logo.png';
+import logoImage from '../assets/logo_transparent.png';
 import '../index.css';
 
 const Navbar = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
                     <li><a href="#home" className="active">Home</a></li>
                     <li><a href="#products">Products</a></li>
                     <li><a href="#blogs">Blogs</a></li>
-                  
+
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
