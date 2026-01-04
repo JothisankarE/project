@@ -205,7 +205,7 @@ ul {
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
 }
 
 .nav-logo-img {
@@ -215,9 +215,6 @@ ul {
   /* Scale up to crop white border */
 }
 
-.nav-logo:hover .nav-logo-wrapper {
-  transform: scale(1.1) rotate(-5deg);
-}
 
 
 
@@ -225,9 +222,8 @@ ul {
 
 
 
-.nav-logo:hover .nav-logo-img {
-  transform: scale(1.1) rotate(-5deg);
-}
+
+
 
 .nav-brand {
   display: flex;

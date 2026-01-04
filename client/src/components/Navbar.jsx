@@ -57,9 +57,30 @@ const Navbar = () => {
                 {/* Unified Navigation Links */}
                 <div className="nav-glass-wrap">
                     <Link to="/" className="nav-logo">
-                        <div className="nav-logo-wrapper">
+                        <motion.div
+                            className="nav-logo-wrapper"
+                            animate={{
+                                y: [0, -5, 0],
+                                rotate: [0, 5, -5, 0]
+                            }}
+                            transition={{
+                                y: {
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    repeatType: "loop"
+                                },
+                                rotate: {
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    repeatType: "loop"
+                                }
+                            }}
+                            whileHover={{ scale: 1.1, rotate: -5 }}
+                        >
                             <img src={logoImage} alt="SARAVANA OVERSEAS" className="nav-logo-img" />
-                        </div>
+                        </motion.div>
                         <div className="nav-brand">
                             <span className="brand-main">SARAVANA</span>
                             <span className="brand-sub">OVERSEAS</span>
