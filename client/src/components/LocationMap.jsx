@@ -25,37 +25,50 @@ const LocationMap = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h3 className="heading-serif" style={{ marginBottom: '30px', color: 'var(--accent-blue)' }}>Let's Connect</h3>
+                        <span className="section-tag" style={{ marginBottom: '15px' }}>Our Presence</span>
+                        <h3 className="heading-serif" style={{ marginBottom: '30px', color: 'var(--accent-blue)' }}>Local Roots, Global Reach</h3>
 
-                        <div className="contact-item">
-                            <FaMapMarkerAlt className="contact-icon" />
-                            <div>
-                                <h4>Headquarters</h4>
-                                <p>
-                                    D. No. 3/98, Sri Sendhur Garden Phase-2<br />
-                                    Varathaiyangarpalayam<br />
-                                    Kondayanpalayam (Post), Annur (Taluk)<br />
-                                    Coimbatore (District)<br />
-                                    Tamil Nadu, India - 641110
-                                </p>
+                        <div className="office-locations-grid">
+                            <div className="contact-item">
+                                <FaMapMarkerAlt className="contact-icon" />
+                                <div>
+                                    <h4>Headquarters</h4>
+                                    <p>
+                                        D. No. 3/98, Sri Sendhur Garden Phase-2<br />
+                                        Annur-Kondayanpalayam Road<br />
+                                        Coimbatore, TN, India - 641110
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="contact-item">
+                                <FaMapMarkerAlt className="contact-icon" style={{ color: 'var(--accent-gold)' }} />
+                                <div>
+                                    <h4>Branch Office</h4>
+                                    <p>
+                                        Shop No. 1/1A, Rathnagiri Street<br />
+                                        Kaapi Kadai Stop, Saravanampatti Post<br />
+                                        Coimbatore, TN, India - 641035
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="contact-item">
-                            <FaPhone className="contact-icon" />
-                            <div>
-                                <h4>Call Us</h4>
-                                <p>+91 9047385702</p>
-                                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Mon-Sat, 9 AM - 6 PM IST</p>
+                        <div className="contact-methods-flex" style={{ marginTop: '30px', display: 'flex', gap: '30px', flexWrap: 'wrap' }}>
+                            <div className="contact-item">
+                                <FaPhone className="contact-icon" />
+                                <div>
+                                    <h4>Call Us</h4>
+                                    <p>+91 90473 85702</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="contact-item">
-                            <FaEnvelope className="contact-icon" />
-                            <div>
-                                <h4>Email</h4>
-                                <p>saravanaoverseas1@gmail.com</p>
-                                <p>rraja_77@yahoo.co.in</p>
+                            <div className="contact-item">
+                                <FaEnvelope className="contact-icon" />
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>saravanaoverseas1@gmail.com</p>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

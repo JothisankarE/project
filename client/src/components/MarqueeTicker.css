@@ -1,0 +1,45 @@
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: var(--accent-blue);
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+}
+
+.marquee-item {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+}
+
+.marquee-separator {
+    margin-left: 80px;
+    color: var(--accent-gold);
+    font-size: 2rem;
+}
+
+/* Glassmorphism variation */
+.marquee-wrapper.glass {
+    background: rgba(25, 118, 210, 0.1);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.marquee-wrapper.glass .marquee-item {
+    color: var(--accent-blue);
+}

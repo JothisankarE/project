@@ -12,6 +12,7 @@ const Gallery = lazy(() => import('./components/Gallery'));
 const Blogs = lazy(() => import('./components/Blogs'));
 const Careers = lazy(() => import('./components/Careers'));
 const About = lazy(() => import('./components/About'));
+const MarqueeTicker = lazy(() => import('./components/MarqueeTicker'));
 const Testimonial = lazy(() => import('./components/Testimonial'));
 const LocationMap = lazy(() => import('./components/LocationMap'));
 const ContactForm = lazy(() => import('./components/ContactForm'));
@@ -39,14 +40,15 @@ function App() {
         <Navbar />
         <Suspense fallback={<LoadingScreen />}>
           <Hero />
-          <InfoSection />
           <Products />
           <Gallery />
           <Blogs />
           <Careers />
           <About />
-          <Testimonial />
+          <MarqueeTicker />
+          <InfoSection />
           <LocationMap />
+          <Testimonial />
           <ContactForm />
           <Footer />
           <WhatsAppFloat />
