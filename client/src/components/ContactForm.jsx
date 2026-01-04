@@ -1,51 +1,73 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaUser, FaEnvelope, FaCommentAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaCommentAlt, FaPaperPlane, FaGlobe, FaPhone } from 'react-icons/fa';
 import '../index.css';
 import './ContactForm.css';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        country: '',
+        contact: '',
+        subject: '',
         message: ''
     });
 
     const [status, setStatus] = useState('idle'); // 'idle', 'loading', 'success', 'error'
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({ ...formData, [e.target.name]: e.target.value.toUpperCase() });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setStatus('loading');
 
-        try {
-            const response = await fetch('http://localhost:5000/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+        const now = new Date();
+        const dateStr = now.toLocaleDateString();
+        const timeStr = now.toLocaleTimeString();
 
-            const data = await response.json();
+        // Construct the Gmail URL with pre-filled data
+        const subject = formData.subject;
 
-            if (data.success) {
-                setStatus('success');
-                setFormData({ name: '', email: '', message: '' });
-                // Hide success message after 5 seconds
-                setTimeout(() => setStatus('idle'), 5000);
-            } else {
-                setStatus('error');
-                setTimeout(() => setStatus('idle'), 4000);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            setStatus('error');
-            setTimeout(() => setStatus('idle'), 4000);
+        // Build introduction: "I am [Name]" or "I am [Name] from [Country]."
+        let introLine = `I am ${formData.name}`;
+        if (formData.country && formData.country.trim() !== '') {
+            introLine += ` from ${formData.country}`;
         }
+        introLine += '.';
+
+        // Build contact line: only if contact exists
+        let contactLine = '';
+        if (formData.contact && formData.contact.trim() !== '') {
+            contactLine = `You can reach me at: ${formData.contact}`;
+        }
+
+        const body = `Dear Saravana Overseas Team,
+
+I am writing to inquire about your services.
+
+${introLine}
+${contactLine}
+
+${formData.message}
+
+Thank you for your time and consideration.
+
+Yours faithfully,
+${formData.name}`;
+
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=saravanaoverseas1@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Open Gmail in a new tab
+        window.open(gmailUrl, '_blank');
+
+        // Show success state
+        setStatus('success');
+        setFormData({ name: '', country: '', contact: '', subject: '', message: '' });
+
+        // Reset status
+        setTimeout(() => setStatus('idle'), 5000);
     };
 
     return (
@@ -84,10 +106,8 @@ const ContactForm = () => {
                         <div className="contact-header">
                             <h2 className="heading-serif">Start a Conversation</h2>
                             <p>Our experts are ready to streamline your global logistics today.</p>
-                            <p style={{ marginTop: '10px', fontSize: '0.9rem' }}>
-                                Or email us directly at: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saravanaoverseas1@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-blue)', fontWeight: '600' }}>saravanaoverseas1@gmail.com</a>
-                            </p>
-                        </div>
+        </div>
+                        
 
                         <form onSubmit={handleSubmit} className="modern-form">
                             <div className="input-row">
@@ -96,7 +116,7 @@ const ContactForm = () => {
                                     <input
                                         type="text"
                                         name="name"
-                                        placeholder="e.g. John Doe"
+                                        placeholder="Full Name"
                                         className="modern-input"
                                         value={formData.name}
                                         onChange={handleChange}
@@ -104,13 +124,38 @@ const ContactForm = () => {
                                     />
                                 </div>
                                 <div className="modern-input-group">
-                                    <label><FaEnvelope /> Email Address</label>
+                                    <label><FaGlobe /> Country</label>
                                     <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="e.g. john@example.com"
+                                        type="text"
+                                        name="country"
+                                        placeholder="Country"
                                         className="modern-input"
-                                        value={formData.email}
+                                        value={formData.country}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="input-row" style={{ marginTop: '-10px' }}>
+                                <div className="modern-input-group">
+                                    <label><FaPhone /> Contact No (with country code)</label>
+                                    <input
+                                        type="tel"
+                                        name="contact"
+                                        placeholder="+91 99999 99999"
+                                        className="modern-input"
+                                        value={formData.contact}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="modern-input-group">
+                                    <label><FaEnvelope /> Subject</label>
+                                    <input
+                                        type="text"
+                                        name="subject"
+                                        placeholder="Inquiry Subject"
+                                        className="modern-input"
+                                        value={formData.subject}
                                         onChange={handleChange}
                                         required
                                     />

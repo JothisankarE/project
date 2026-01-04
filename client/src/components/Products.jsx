@@ -14,7 +14,7 @@ const Products = () => {
             id: 'machinery-and-tools',
             name: 'Machinery and Tools',
             description: 'Precision engineering tools including spanners, screw drivers, motors, and specialized workshop equipment.',
-            image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?q=80&w=2070&auto=format&fit=crop'
         },
         {
             id: 'agri-commodities',
@@ -26,13 +26,13 @@ const Products = () => {
             id: 'general-trading',
             name: 'General Trading',
             description: 'Diverse range of consumer electronics, appliances, and lifestyle products.',
-            image: 'https://images.unsplash.com/photo-1604719312566-b7cb07743818?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2101&auto=format&fit=crop'
         },
         {
             id: 'handicrafts',
-            name: 'Handicrafts',
-            description: 'Intricate palm products, handmade dolls, and traditional terracotta art.',
-            image: 'https://images.unsplash.com/photo-1584143257657-3f338d3abcc4?q=80&w=2070&auto=format&fit=crop'
+            name: 'Hand Crafts',
+            description: 'Palm base, holy cross, wooden toys and traditional terracotta art.',
+            image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2070&auto=format&fit=crop'
         },
         {
             id: 'spices',
@@ -44,7 +44,7 @@ const Products = () => {
             id: 'handlooms-products',
             name: 'Handlooms Products',
             description: 'Exquisite hand-woven textiles, including bedsheets, sweaters, and traditional artisanal fabrics.',
-            image: 'https://images.unsplash.com/photo-1629853387693-02fba7376c64?q=80&w=2070&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1520006403909-838d6b92c22e?q=80&w=2070&auto=format&fit=crop'
         }
     ];
 
