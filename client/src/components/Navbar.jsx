@@ -55,9 +55,7 @@ const Navbar = () => {
             <div className="container nav-container">
                 {/* Unified Navigation Links */}
                 <div className="nav-glass-wrap">
-                    <div className="nav-logo-icon-only">
-                        <FaGlobe className="globe-brand-icon" />
-                    </div>
+
                     <ul className="nav-links desktop-nav">
                         <li><a href="#home" className="active"><FaHome /> Home</a></li>
                         <li
@@ -78,6 +76,14 @@ const Navbar = () => {
                                         <div className="dropdown-grid-premium">
                                             {categories.map((cat, i) => {
                                                 const slug = cat.toLowerCase().replace(/ /g, '-').replace('&', 'and');
+                                                // Function to get icon based on category (simple visual mapping)
+                                                const getIcon = (name) => {
+                                                    if (name.includes("Vehicles")) return <FaBoxOpen />;
+                                                    if (name.includes("Tools")) return <FaBoxOpen />;
+                                                    if (name.includes("Agri")) return <FaGlobe />;
+                                                    return <FaBoxOpen />; // Default
+                                                };
+
                                                 return (
                                                     <Link
                                                         key={i}
@@ -85,7 +91,9 @@ const Navbar = () => {
                                                         className="dropdown-item-premium"
                                                         onClick={() => setProductsDropdown(false)}
                                                     >
-                                                        <div className="item-dot"></div>
+                                                        <div className="item-icon-wrapper">
+                                                            {getIcon(cat)}
+                                                        </div>
                                                         <span className="item-text">{cat}</span>
                                                     </Link>
                                                 );

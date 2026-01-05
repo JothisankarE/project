@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaLinkedin, FaTwitter, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import '../index.css';
 
@@ -16,9 +16,7 @@ const Footer = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="footer-title">SARAVANA <span>OVERSEAS</span></h2>
-                        <p className="footer-mission">
-                            Elevating global trade through precision logistics and innovative supply chain solutions.
-                        </p>
+
                         <div className="footer-social-grid">
                             <a href="#" className="social-pill"><FaInstagram /></a>
                             <a href="#" className="social-pill"><FaYoutube /></a>
@@ -37,10 +35,10 @@ const Footer = () => {
                     >
                         <h3>Navigation</h3>
                         <ul className="vertical-links">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#products">Products</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#blogs">Insights</a></li>
+                            <li><a href="#home"><FaChevronRight className="link-icon" /> Home</a></li>
+                            <li><a href="#products"><FaChevronRight className="link-icon" /> Products</a></li>
+                            <li><a href="#about"><FaChevronRight className="link-icon" /> About</a></li>
+                            <li><a href="#blogs"><FaChevronRight className="link-icon" /> Insights</a></li>
                         </ul>
                     </motion.div>
 
@@ -55,11 +53,11 @@ const Footer = () => {
                         <h3>Get In Touch</h3>
                         <div className="vertical-contact">
                             <div className="contact-block">
-                                <span>Email</span>
+                                <span><FaEnvelope className="contact-icon" /> Email</span>
                                 <a href="mailto:saravanaoverseas1@gmail.com">saravanaoverseas1@gmail.com</a>
                             </div>
                             <div className="contact-block">
-                                <span>Reach Us</span>
+                                <span><FaPhoneAlt className="contact-icon" /> Reach Us</span>
                                 <a href="tel:+919047385702">+91 90473 85702</a>
                             </div>
                         </div>
@@ -74,16 +72,20 @@ const Footer = () => {
                         transition={{ delay: 0.3 }}
                     >
                         <h3>HQ Location</h3>
-                        <p className="footer-address-modern">
-                            Kondayanpalayam, Annur,<br />
-                            Coimbatore, Tamil Nadu,<br />
-                            India - 641110
-                        </p>
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Kondayanpalayam,+Annur,+Coimbatore,+Tamil+Nadu+-+641110"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="footer-address-modern address-link"
+                        >
+                            <FaMapMarkerAlt className="location-icon" />
+                            <div>
+                                Kondayanpalayam, Annur,<br />
+                                Coimbatore, Tamil Nadu,<br />
+                                India - 641110
+                            </div>
+                        </a>
                     </motion.div>
-                </div>
-
-                <div className="footer-vertical-bottom">
-                    <p>&copy; {new Date().getFullYear()} SARAVANA OVERSEAS. PRECISION IN EVERY MOVE.</p>
                 </div>
             </div>
         </footer>

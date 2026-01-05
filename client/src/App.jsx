@@ -42,7 +42,7 @@ const Home = () => (
     <Careers />
     <About />
     <InfoSection />
-    <LocationMap />
+    {/* <LocationMap /> - Map moved to ContactForm */}
     <Testimonial />
     <ContactForm />
   </>

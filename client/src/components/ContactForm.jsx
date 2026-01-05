@@ -95,19 +95,18 @@ ${formData.name}`;
                     </div>
                 )}
 
-                <div className="contact-wrapper">
+                <div className="contact-grid-wrapper">
                     <motion.div
                         className="contact-card glass-card"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, x: -30 }} // Slide in from left
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
                         <div className="contact-header">
                             <h2 className="heading-serif">Start a Conversation</h2>
                             <p>Our experts are ready to streamline your global logistics today.</p>
-        </div>
-                        
+                        </div>
 
                         <form onSubmit={handleSubmit} className="modern-form">
                             <div className="input-row">
@@ -138,7 +137,7 @@ ${formData.name}`;
 
                             <div className="input-row" style={{ marginTop: '-10px' }}>
                                 <div className="modern-input-group">
-                                    <label><FaPhone /> Contact No (with country code)</label>
+                                    <label><FaPhone /> Contact No</label>
                                     <input
                                         type="tel"
                                         name="contact"
@@ -187,6 +186,27 @@ ${formData.name}`;
                                 {status !== 'loading' && <FaPaperPlane className="send-icon" />}
                             </motion.button>
                         </form>
+                    </motion.div>
+
+                    {/* Right Column: Map */}
+                    <motion.div
+                        className="map-column glass-card"
+                        initial={{ opacity: 0, x: 30 }} // Slide in from right
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        style={{ padding: 0, overflow: 'hidden', minHeight: '400px', height: '100%' }}
+                    >
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.4!2d77.0!3d11.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAwJzAwLjAiTiA3N8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, display: 'block', minHeight: '100%' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Saravana Overseas Location"
+                        ></iframe>
                     </motion.div>
                 </div>
             </div>
