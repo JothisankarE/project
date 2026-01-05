@@ -381,8 +381,7 @@ ul {
   }
 
   .nav-container {
-    justify-content: flex-start;
-    gap: 20px;
+    justify-content: space-between;
     padding: 0 20px;
     width: 100%;
   }
@@ -397,10 +396,6 @@ ul {
 
   .hamburger {
     display: flex;
-    z-index: 2000;
-    /* Ensure on top */
-    margin-left: 10px;
-    /* Slight spacing from logo */
   }
 }
 
@@ -1074,49 +1069,206 @@ section {
 }
 
 /* Footer */
+/* Footer - Premium Dark Redesign */
 .footer {
-  border-top: 1px solid var(--glass-border);
-  padding: 80px 0 40px;
-  background: rgba(187, 222, 251, 0.8);
-  backdrop-filter: blur(10px);
+  border-top: none;
+  padding: 80px 0 30px;
+  background: #020617;
+  /* Deeper Premium Black/Blue */
+  color: #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #1976D2, var(--accent-gold), #1976D2);
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  justify-content: space-between;
   gap: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
+}
+
+.footer-brand-col {
+  flex: 2;
+  max-width: 400px;
+}
+
+.footer-contact-col {
+  flex: 2;
+}
+
+.footer-links-col {
+  flex: 1;
+}
+
+.footer-logo-text {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.footer-logo-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: var(--accent-gold);
+}
+
+.footer-logo-text span {
+  color: var(--accent-gold);
+}
+
+.footer-desc {
+  color: #94a3b8;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  max-width: 350px;
+  margin-bottom: 30px;
+  margin-top: 25px;
+  /* Space for underline */
 }
 
 .footer h3 {
-  color: var(--accent-blue);
-  font-family: var(--font-serif);
+  color: #fff;
+  font-family: var(--font-sans);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+.footer h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-gold);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  /* align with text */
+}
+
+.footer-links li {
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  color: #e2e8f0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent-gold);
+  padding-left: 5px;
+}
+
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Horizontal 2-column layout for contact info */
+  gap: 30px;
+}
+
+.footer-contact-list li {
   margin-bottom: 24px;
-  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.footer ul li {
-  margin-bottom: 12px;
-}
-
-.footer ul li a {
-  color: var(--text-muted);
-}
-
-.footer ul li a:hover {
+.footer-contact-list span {
   color: var(--accent-blue);
-  padding-left: 8px;
+  /* Blue Label */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.footer-contact-list a {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-contact-list p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer-address {
+  margin-top: 0;
+  font-style: normal;
+  color: #e2e8f0;
+}
+
+.social-icons.footer-socials {
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.footer-socials .social-icon {
+  background: #cbd5e1;
+  /* Light grey circle */
+  color: #0f172a;
+  /* Dark Icon */
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.footer-socials .social-icon:hover {
+  background: var(--accent-gold);
+  color: #fff;
+  transform: translateY(-3px);
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 40px;
-  border-top: 1px solid var(--glass-border);
-  color: var(--text-muted);
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #64748b;
+  /* Slate 500 */
   font-size: 0.9rem;
 }
 
-/* Products Section */
+/* Products Section Polish */
 .products-section {
   background-color: rgba(255, 255, 255, 0.5);
   position: relative;
@@ -1493,8 +1645,14 @@ section {
 }
 
 .footer-grid {
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-contact-list {
   grid-template-columns: 1fr;
-  gap: 30px;
+  /* Stack contact info on mobile */
+  gap: 20px;
 }
 
 .location-grid {
@@ -1605,10 +1763,28 @@ section {
   }
 
   /* Gallery */
-  .gallery-grid {
+  .footer-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    /* Stack on mobile */
+    gap: 50px;
   }
+
+  .footer-logo-text {
+    font-size: 1.6rem;
+  }
+
+  .footer-socials {
+    justify-content: center;
+    /* Center icons on mobile */
+  }
+
+  .footer-brand-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 
   .gallery-item {
     height: 200px;

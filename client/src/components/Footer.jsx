@@ -7,52 +7,68 @@ const Footer = () => {
         <footer className="footer">
             <div className="container">
                 <div className="footer-grid">
-                    <div>
-                        <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>SARAVANA <span style={{ color: 'var(--accent-gold)' }}>OVERSEAS</span></h3>
-                        <p style={{ color: 'var(--text-muted)', maxWidth: '300px', marginBottom: '15px' }}>
-                            A tech-enabled logistics startup revolutionizing global trade.
-                            Making international commerce accessible for everyone.
+                    {/* Brand Column */}
+                    <div className="footer-brand-col">
+                        <h3 className="footer-logo-text">SARAVANA <span>OVERSEAS</span></h3>
+                        <p className="footer-desc">
+                            Revolutionizing global trade with tech-enabled logistics. We bridge borders to make international commerce accessible, transparent, and seamless for everyone.
                         </p>
-                        <div className="social-icons" style={{ justifyContent: 'flex-start', marginTop: '20px' }}>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <div className="social-icons footer-socials">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
                                 <FaInstagram />
                             </a>
-                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
                                 <FaYoutube />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
                                 <FaLinkedin />
                             </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter">
                                 <FaTwitter />
                             </a>
                         </div>
                     </div>
-                    <div>
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#products">What We Trade</a></li>
-                            <li><a href="#media">Our Gallery</a></li>
-                            <li><a href="#about">Our Story</a></li>
-                            <li><a href="#location">Visit Us</a></li>
+
+                    {/* Contact Column (Moved to Center for better balance) */}
+                    <div className="footer-contact-col">
+                        <h3>Get In Touch</h3>
+                        <ul className="footer-contact-list">
+                            <li>
+                                <span>Support</span>
+                                <a href="mailto:saravanaoverseas1@gmail.com">saravanaoverseas1@gmail.com</a>
+                            </li>
+                            <li>
+                                <span>Sales</span>
+                                <a href="mailto:rraja_77@yahoo.co.in">rraja_77@yahoo.co.in</a>
+                            </li>
+                            <li>
+                                <span>Call Us</span>
+                                <a href="tel:+919047385702">+91 90473 85702</a>
+                            </li>
+                            <li>
+                                <span>Visit Us</span>
+                                <p className="footer-address">
+                                    Kondayanpalayam, Annur,<br />
+                                    Coimbatore, Tamil Nadu - 641110
+                                </p>
+                            </li>
                         </ul>
                     </div>
-                    <div>
-                        <h3>Get In Touch</h3>
-                        <ul>
-                            <li><span style={{ color: 'var(--accent-gold)' }}>Email:</span> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saravanaoverseas1@gmail.com" target="_blank" rel="noopener noreferrer">saravanaoverseas1@gmail.com</a></li>
-                            <li><span style={{ color: 'var(--accent-gold)' }}>Email:</span> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rraja_77@yahoo.co.in" target="_blank" rel="noopener noreferrer">rraja_77@yahoo.co.in</a></li>
-                            <li><span style={{ color: 'var(--accent-gold)' }}>Phone:</span> +91 9047385702</li>
-                            <li style={{ marginTop: '10px', lineHeight: '1.4', fontSize: '0.9rem' }}>
-                                Location: Kondayanpalayam, Annur,<br />
-                                Coimbatore, Tamil Nadu - 641110
-                            </li>
+
+                    {/* Quick Links Column */}
+                    <div className="footer-links-col">
+                        <h3>Quick Links</h3>
+                        <ul className="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#products">Our Products</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#blogs">Insights & Blogs</a></li>
+                            <li><a href="#contact">Contact Support</a></li>
                         </ul>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Saravana Overseas. Building the future of global trade.</p>
+                    <p>&copy; {new Date().getFullYear()} Saravana Overseas. All rights reserved.</p>
                 </div>
             </div>
         </footer>
