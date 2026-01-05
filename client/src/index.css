@@ -374,9 +374,24 @@ ul {
     display: none;
   }
 
+  .navbar {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+
   .nav-container {
     justify-content: space-between;
     padding: 0 20px;
+    width: 100%;
+  }
+
+  .nav-glass-wrap {
+    padding: 5px 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 
   .hamburger {
@@ -441,6 +456,8 @@ ul {
 
 .mobile-menu.open {
   right: 0;
+  display: block;
+  /* Ensure it's displayed */
 }
 
 .mobile-nav-links {
