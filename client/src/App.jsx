@@ -1,17 +1,23 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalVideoBackground from './components/GlobalVideoBackground';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
-// Eager load Home Page components to avoid waterfalls/flicker
+// Eager load all components for instant navigation
 import HomePage from './components/HomePage';
+import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
-// Keep ProductDetails lazy as it is a separate route
-const ProductDetails = lazy(() => import('./components/ProductDetails'));
-const Footer = lazy(() => import('./components/Footer')); // Can stay lazy or be eager
-const WhatsAppFloat = lazy(() => import('./components/WhatsAppFloat'));
+// Product Pages
+import MachineryVehicles from './pages/MachineryVehicles';
+import MachineryTools from './pages/MachineryTools';
+import AgriCommodities from './pages/AgriCommodities';
+import GeneralTrading from './pages/GeneralTrading';
+import Handicrafts from './pages/Handicrafts';
+import Spices from './pages/Spices';
+import HandloomsProducts from './pages/HandloomsProducts';
 
 // Modern, minimalist loading state
 const LoadingScreen = () => (
@@ -36,7 +42,13 @@ function App() {
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/product/:productId" element={<ProductDetails />} />
+            <Route path="/machinery-vehicles" element={<MachineryVehicles />} />
+            <Route path="/machinery-tools" element={<MachineryTools />} />
+            <Route path="/agri-commodities" element={<AgriCommodities />} />
+            <Route path="/general-trading" element={<GeneralTrading />} />
+            <Route path="/handicrafts" element={<Handicrafts />} />
+            <Route path="/spices" element={<Spices />} />
+            <Route path="/handlooms-products" element={<HandloomsProducts />} />
           </Routes>
           <Footer />
           <WhatsAppFloat />
@@ -47,4 +59,3 @@ function App() {
 }
 
 export default App;
-

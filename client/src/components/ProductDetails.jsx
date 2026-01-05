@@ -8,7 +8,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [productId]); // Depend on productId to re-run when it changes
 
     // Product data mapping based on ID or Name
     const productData = {

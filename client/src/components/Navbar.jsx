@@ -11,8 +11,18 @@ const Navbar = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [productsDropdown, setProductsDropdown] = useState(false);
 
-    // Hide Navbar on product details page
-    if (location.pathname.startsWith('/product/')) return null;
+    // Hide Navbar on all product pages
+    const productRoutes = [
+        '/machinery-vehicles',
+        '/machinery-tools',
+        '/agri-commodities',
+        '/general-trading',
+        '/handicrafts',
+        '/spices',
+        '/handlooms-products'
+    ];
+
+    if (productRoutes.includes(location.pathname)) return null;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,7 +51,7 @@ const Navbar = () => {
         "Machinery and Tools",
         "Agri Commodities",
         "General Trading",
-        "Handicrafts",
+        "Hand crafts",
         "Spices",
         "Handlooms Products"
     ];
@@ -78,30 +88,34 @@ const Navbar = () => {
                                         transition={{ duration: 0.3, ease: "easeOut" }}
                                     >
                                         <div className="dropdown-grid-premium">
-                                            {categories.map((cat, i) => {
-                                                const slug = cat.toLowerCase().replace(/ /g, '-').replace('&', 'and');
-                                                // Function to get icon based on category (simple visual mapping)
-                                                const getIcon = (name) => {
-                                                    if (name.includes("Vehicles")) return <FaBoxOpen />;
-                                                    if (name.includes("Tools")) return <FaBoxOpen />;
-                                                    if (name.includes("Agri")) return <FaGlobe />;
-                                                    return <FaBoxOpen />; // Default
-                                                };
-
-                                                return (
-                                                    <Link
-                                                        key={i}
-                                                        to={`/product/${slug}`}
-                                                        className="dropdown-item-premium"
-                                                        onClick={() => setProductsDropdown(false)}
-                                                    >
-                                                        <div className="item-icon-wrapper">
-                                                            {getIcon(cat)}
-                                                        </div>
-                                                        <span className="item-text">{cat}</span>
-                                                    </Link>
-                                                );
-                                            })}
+                                            <Link to="/machinery-vehicles" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaBoxOpen /></div>
+                                                <span className="item-text">Machinery and Vehicles</span>
+                                            </Link>
+                                            <Link to="/machinery-tools" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaBoxOpen /></div>
+                                                <span className="item-text">Farm Equipment and Tools</span>
+                                            </Link>
+                                            <Link to="/agri-commodities" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaGlobe /></div>
+                                                <span className="item-text">Agri Commodities</span>
+                                            </Link>
+                                            <Link to="/general-trading" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaBoxOpen /></div>
+                                                <span className="item-text">General Trading</span>
+                                            </Link>
+                                            <Link to="/handicrafts" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaBoxOpen /></div>
+                                                <span className="item-text">Hand crafts</span>
+                                            </Link>
+                                            <Link to="/spices" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaBoxOpen /></div>
+                                                <span className="item-text">Spices</span>
+                                            </Link>
+                                            <Link to="/handlooms-products" className="dropdown-item-premium" onClick={() => setProductsDropdown(false)}>
+                                                <div className="item-icon-wrapper"><FaBoxOpen /></div>
+                                                <span className="item-text">Handlooms Products</span>
+                                            </Link>
                                         </div>
                                     </motion.div>
                                 )}
